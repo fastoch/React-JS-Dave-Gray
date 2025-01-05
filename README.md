@@ -12,7 +12,7 @@ After all, React is a JS library. c
 
 >[!Note]
 >This follow-up video for React Router version 6 provides an update for the blog project in the original course video: 
->https://youtu.be/XBRLVRjZ3CQ
+  >https://youtu.be/XBRLVRjZ3CQ
 
 ---
 
