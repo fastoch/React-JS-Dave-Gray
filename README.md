@@ -46,7 +46,3 @@ The exact name is **ES7+ React/Redux/React-Native snippets**.
 - find 'Emmet: include languages'
 - to use Emmet abbreviations for React, add 'javascript' (key) and 'javascriptreact' (value).
 
-Now, we can open a terminal window (ctrl + J): 
-- `cd` into our React project's folder if not already the current folder
-- `code .` to open another instance of VS Code from this folder
-- close our current instance of VS Code to keep working inside the new one
