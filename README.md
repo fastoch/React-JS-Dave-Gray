@@ -11,8 +11,8 @@ Of course, to follow this React course, you need to understand HTML, CSS and Jav
 After all, React is a JS library. c
 
 >[!Note]
->This follow-up video for React Router version 6 provides an update for the blog project in the original course video: 
-  >https://youtu.be/XBRLVRjZ3CQ
+>This follow-up video for React Router version 6 provides an update for the blog project in the original course video:   
+>https://youtu.be/XBRLVRjZ3CQ
 
 ---
 
