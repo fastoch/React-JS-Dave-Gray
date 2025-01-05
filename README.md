@@ -27,3 +27,12 @@ To get started with React, we need to make sure we installed Node.js.
 - install on Arch Linux: `sudo pacman -S nodejs`
 
 It might be useful to also install the React Dev Tools for your favorite Web browser.  
+
+Let's create our first React project: 
+- open a terminal window in VS code
+- `npm create vite@latest`  
+- name your project, select React as the framework, and TypeScript as the variant
+- `cd` into your project directory
+- run `npm install` to install missing dependencies
+- run `npm run dev` to start your dev server
+- ctrl + click on the provided URL (http://localhost:5173/)
