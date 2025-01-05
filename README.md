@@ -46,3 +46,13 @@ The exact name is **ES7+ React/Redux/React-Native snippets**.
 - find 'Emmet: include languages'
 - to use Emmet abbreviations for React, add 'javascript' (key) and 'javascriptreact' (value).
 
+---
+
+## The node_modules folder
+
+The node_modules folder is a directory in **Node.js** projects that stores third-party libraries and dependencies.  
+It serves as a cache for external modules that a project depends on.  
+When you use **npm** (Node Package Manager) to install packages, they are downloaded and stored in this folder.  
+
+Since you don't want to store all of those files in your repository, the node_modules folder is included in the  
+**.gitignore** file. That's why this folder is greyed out in VS Code file tree.
