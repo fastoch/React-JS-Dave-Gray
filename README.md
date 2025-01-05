@@ -31,8 +31,22 @@ It might be useful to also install the React Dev Tools for your favorite Web bro
 Let's create our first React project: 
 - open a terminal window in VS code
 - `npm create vite@latest`  
-- name your project, select React as the framework, and TypeScript as the variant
+- name your project, select React (framework), and TypeScript (variant)
 - `cd` into your project directory
 - run `npm install` to install missing dependencies
 - run `npm run dev` to start your dev server
 - ctrl + click on the provided URL (http://localhost:5173/)
+
+Now we can go to the Extensions tab in VS Code (ctrl + shift + X) and install the ES7+ extension.  
+The exact name is **ES7+ React/Redux/React-Native snippets**.
+
+**Additional tip**:
+- open VS Code settings via ctrl + ,
+- search for 'Emmet'
+- find 'Emmet: include languages'
+- to use Emmet abbreviations for React, add 'javascript' (key) and 'javascriptreact' (value).
+
+Now, we can open a terminal window (ctrl + J): 
+- `cd` into our React project's folder if not already the current folder
+- `code .` to open another instance of VS Code from this folder
+- close our current instance of VS Code to keep working inside the new one
