@@ -50,9 +50,24 @@ The exact name is **ES7+ React/Redux/React-Native snippets**.
 
 ## The node_modules folder
 
-The node_modules folder is a directory in **Node.js** projects that stores third-party libraries and dependencies.  
-It serves as a cache for external modules that a project depends on.  
+The **node_modules** folder is a directory in **Node.js** projects that stores third-party libraries and dependencies.  
+It serves as a cache for external modules that a project depends on (**dependencies**).  
 When you use **npm** (Node Package Manager) to install packages, they are downloaded and stored in this folder.  
 
 Since you don't want to store all of those files in your repository, the node_modules folder is included in the  
 **.gitignore** file. That's why this folder is greyed out in VS Code file tree.
+
+---
+
+## How React works
+
+React uses only one .html file. This file loads into the browser and then React takes over and presents the rest of the content.  
+The `package.json` file includes the project name, the version, some default scripts, the list of **dependencies**.  
+
+The list of **dependencies** is important because this is how Node knows which depedencies to pull in from the **node_modules** folder.  
+
+
+
+---
+
+# Chapter 2 
