@@ -66,8 +66,9 @@ The `package.json` file includes the project name, the version, some default scr
 
 The list of **dependencies** is important because this is how Node knows which depedencies to pull in from the **node_modules** folder.  
 
-
-
 ---
 
-# Chapter 2 
+# Chapter 2 - App & JSX
+
+We will explore the App component, which is the default component created in any new React project.  
+we'll also explain what is JSX, and what we can do with it.
