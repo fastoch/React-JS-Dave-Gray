@@ -71,4 +71,22 @@ The list of **dependencies** is important because this is how Node knows which d
 # Chapter 2 - App & JSX
 
 We will explore the App component, which is the default component created in any new React project.  
-we'll also explain what is JSX, and what we can do with it.
+we'll also explain what is JSX, and what we can do with it.  
+
+## 'src' folder
+
+Let's look at our `main.tsx` file (in the past, we used to have an `index.js` file instead).  
+In this file, we import our app via `import App from './App.tsx'` (line 4).  
+
+In React, **each component gets its own file**.  
+And at line 8, you can see that the **App** component is injected into the **DOM**.  
+And it's injected into the element that has the id of '**root**', which is the default when you create a React project.  
+
+Now, let's look at this `App.tsx` file (replaces the formerly used `App.js` file).  
+You'll notice that the App component is a function. Modern React uses functional components.  
+But you may see some legacy code with Class components.  
+
+The `return` statement in our `App()` function returns JSX.  
+**JSX**, or **JavaScript XML**, is a syntax extension for JavaScript that allows developers to write **HTML-like code** within JavaScript.  
+Initially created by Facebook for use with the React framework, JSX has become widely adopted across various web development frameworks.  
+
