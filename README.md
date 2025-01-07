@@ -86,7 +86,20 @@ Now, let's look at this `App.tsx` file (replaces the formerly used `App.js` file
 You'll notice that the App component is a function. Modern React uses functional components.  
 But you may see some legacy code with Class components.  
 
-The `return` statement in our `App()` function returns JSX.  
-**JSX**, or **JavaScript XML**, is a syntax extension for JavaScript that allows developers to write **HTML-like code** within JavaScript.  
+## JSX
+
+The `return` statement in the `App()` function of our `App.tsx` file returns JSX.  
+**JSX**, or **JavaScript XML**, is a syntax extension for JavaScript that allows developers to write **HTML-like code**  
+within JavaScript.  
+
 Initially created by Facebook for use with the React framework, JSX has become widely adopted across various web development frameworks.  
+
+JSX allows us to put JavaScript expressions in the code.  
+For example, we can use variables as the value of an image source <img src={imported_variable} />.  
+These variables need to be imported at the top of our `App.tsx` file, or declared inside the `App()` function.  
+The curly braces say "hey, that's a JavaScript expression, not HTML".  
+
+Note that **objects** or **booleans** cannot be rendered to the page via JS expressions.  
+
+To comment out a line of JSX code, use `{/* your code here */}`.  
 
