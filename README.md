@@ -82,6 +82,8 @@ In React, **each component gets its own file**.
 And at line 8, you can see that the **App** component is injected into the **DOM**.  
 And it's injected into the element that has the id of '**root**', which is the default when you create a React project.  
 
+---
+
 Now, let's look at this `App.tsx` file (replaces the formerly used `App.js` file).  
 You'll notice that the App component is a function. Modern React uses functional components.  
 But you may see some legacy code with Class components.  
@@ -102,4 +104,11 @@ The curly braces say "hey, that's a JavaScript expression, not HTML".
 Note that **objects** or **booleans** cannot be rendered to the page via JS expressions.  
 
 To comment out a line of JSX code, use `{/* your code here */}`.  
+
+Practical example: lines 9 to 13 + line 27 of the `App.tsx` file.  
+>Using a function to render a randomly generated name.
+
+---
+
+# Chapter 3 - Functional Components
 

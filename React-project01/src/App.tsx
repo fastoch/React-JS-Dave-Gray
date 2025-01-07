@@ -6,6 +6,12 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const handleNameChange = () => {
+    const names = ['Bob', 'Kevin', 'Dave'];
+    const int = Math.floor(Math.random() * 3); // 0,1,2
+    return names[int];
+  }
+
   return (
     <>
       <div>
@@ -17,6 +23,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+
+      <p>Hello {handleNameChange()}!</p>
+      
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
