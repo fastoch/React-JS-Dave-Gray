@@ -17,6 +17,12 @@ Of course, to follow this React course, you need to understand HTML, CSS and Jav
 
 # Chapter 1
 
+>[!important]
+>Create React App (CRA) has been deprecated and is no longer recommended for starting new React projects.  
+>The React team removed CRA from the official documentation in early 2023.  
+>Recommended alternatives include Vite, Next.js, Remix, or Gatsby.
+
+
 React is a open-source front-end JS library for building User Interfaces (UIs) or UI components.  
 Its initial release was in May 2013, and it was developed by Facebook and the dev community.  
 
@@ -112,3 +118,4 @@ Practical example: lines 9 to 13 + line 27 of the `App.tsx` file.
 
 # Chapter 3 - Functional Components
 
+Today, we'll be adding functional components to our project.  
