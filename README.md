@@ -119,3 +119,27 @@ Practical example: lines 9 to 13 + line 27 of the `App.tsx` file.
 # Chapter 3 - Functional Components
 
 Today, we'll be adding functional components to our project.  
+Because that is some of the power of React, we can create components that are **reusable**.  
+
+For that end, we'll use the VS Code extension named **ES7+ React/Redux/React-Native snippets**.  
+
+In our `main.tsx` file, we import the `App` component from the `App.tsx` file.
+
+The **App** component (`App.tsx`) is the default component created in any new React project.  
+It's also the **parent** of all the other components in the **component tree**.  
+
+And these other components that we will create will also need to be **imported** into the `App.tsx` file.  
+
+## Our first child component
+
+Let's create a `Header.tsx` file in our `src` folder.  
+Use **ctrl + alt + R** to seach a React snippet, and type '**rafce**' to get the React Arrow Function Component.  
+This will automatically create a function named after the file name (Header in our case).  
+
+Note that we're not bound to use <div>, it's very easy to get caught up just using divs when using React.  
+But it's best to stick with the semantic HTML tags.  
+
+Once we've created our Header component, we need to import it into the `App.tsx` file.  
+`import Header from './Header.tsx'`  
+
+And then we can use it in the return statement of our `App()` function to make it appear on the web page.  
