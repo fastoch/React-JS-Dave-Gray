@@ -222,8 +222,78 @@ It's very common to create one stylesheet (.css file) for each component file.
 However, that's not necessary in a small project, where one single stylesheet will do.  
 
 You can also **inline** the styles inside the JSX code.  
-**Example** of that: line 3 of the `Header.tsx` file.  
+**Example** of that: line 3 of the `Header.tsx` file. 
+
+```tsx
+const Header = () => {
+  return (
+    <header style={{
+      backgroundColor: 'royalblue',
+      color: '#fff'
+    }}>  
+      <h1>Groceries List</h1>
+    </header>
+  )
+}
+```
+
 The "double curlies" syntax is commonly used for passing objects in JSX, such as style objects.  
 The outer curly braces { } indicate a JavaScript expression in JSX, while the inner curly braces { }  
 define an object literal for the inline style.  
+
+>[!important]
+>If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
+>component file where you want to use it.  
+
+---
+
+# Chapter 5 - Click Events
+
+React is a JS library. So just like in vanilla JS, it can respond to many different event types.  
+In this chapter, we'll learn how to add click events to our React components.  
+
+In React, we can use **event handlers** to handle user interactions.  
+Let's do that in our `Content.tsx` component.  
+
+We first add the following function in our Content component, before the return statement:
+```tsx
+const handleClick = () => {
+  console.log('I was clicked');
+}
+```
+
+Then, we add the following code to the return statement:
+
+
+---
+
+## Function call vs Function reference
+
+In the following code, we can see the difference between a function call and a function reference.
+  - Without parentheses: Pass the function as a reference (for event handlers).
+  - With parentheses: Immediately call the function and use its result.
+
+```tsx
+const Content = () => {
+  const handleNameChange = () => {
+    const names = ['Bob', 'Kevin', 'Dave'];
+    const int = Math.floor(Math.random() * 3); // 0,1,2
+    return names[int];
+  }
+
+  const handleClick = () => {
+    console.log('I was clicked');
+  }
+
+  return (
+    <main>
+      <button onClick={handleClick}>Click me</button>  {/* this is a function reference */}
+      <p>Hello {handleNameChange()}!</p>  {/* this is a function call */}
+    </main>
+  )
+}
+```
+
+---
+
 

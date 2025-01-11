@@ -8,6 +8,10 @@ const Content = () => {
     return names[int];
   }
 
+  const handleClick = () => {
+    console.log('I was clicked');
+  }
+
   return (
     <main>
       <a href="https://vite.dev" target="_blank">
@@ -17,7 +21,8 @@ const Content = () => {
         <img src={reactLogo} className="logo react" alt="React logo" />
       </a>
       <h1>Vite + React</h1>
-      <p>Hello {handleNameChange()}!</p>
+      <button onClick={handleClick}>Click me</button>  {/* this is a function reference */}
+      <p>Hello {handleNameChange()}!</p>  {/* this is a function call */}
     </main>
   )
 }
