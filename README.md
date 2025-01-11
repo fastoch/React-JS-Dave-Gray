@@ -103,16 +103,17 @@ within JavaScript.
 Initially created by Facebook for use with the React framework, JSX has become widely adopted across various web development frameworks.  
 
 JSX allows us to put JavaScript expressions in the code.  
-For example, we can use variables as the value of an image source <img src={imported_variable} />.  
-These variables need to be imported at the top of our `App.tsx` file, or declared inside the `App()` function.  
-The curly braces say "hey, that's a JavaScript expression, not HTML".  
+For example, we can use **variables** as the value of an image source <img src={imported_variable} />.  
+These variables need to be **imported** at the top of our `App.tsx` file, or declared inside the `App()` function.  
+The **curly braces** say "hey, that's a JavaScript expression, not HTML".  
 
 Note that **objects** or **booleans** cannot be rendered to the page via JS expressions.  
 
-To comment out a line of JSX code, use `{/* your code here */}`.  
+To **comment** out a line of JSX code, use `{/* your code here */}`.  
 
-Practical example: lines 9 to 13 + line 27 of the `App.tsx` file.  
->Using a function to render a randomly generated name.
+**Practical example**: lines 5 to 9 + line 20 of the `Content.tsx` file.  
+>Using a function to render a randomly generated name.  
+This is a file we will create in the next chapter.
 
 ---
 
@@ -142,26 +143,35 @@ But it's best to stick with the semantic HTML tags.
 Once we've created our Header component, we need to import it into the `App.tsx` file.  
 `import Header from './Header.tsx'`  
 
-And then we can use it in the return statement of our `App()` function to make it appear on the web page.  
+And then we can use Header in the return statement of our `App()` function to make it appear on the web page.  
 ```tsx
 function App() {
-  const [count, setCount] = useState(0)
-
-  const handleNameChange = () => {
-    const names = ['Bob', 'Kevin', 'Dave'];
-    const int = Math.floor(Math.random() * 3); // 0,1,2
-    return names[int];
-  }
-
   return (
     <>
       <div>
         <Header />  {/* this component is imported from Header.tsx */}
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
       </div>
 ```
+
+## Our second child component
+
+Same steps as before:
+- Let's create a new file named `Content.tsx` in our `src` folder.  
+- Then press **ctrl + alt + R** and type '**rafce**' to get the React Arrow Function Component.  
+- Replace the <div> tag with a <main> tag.  
+- import the `Content` component into the `App.tsx` file
+- apply this new component to the return statement of the `App()` function
+
+```tsx
+function App() {
+  return (
+    <>
+      <div>
+        <Header />  {/* this component is imported from Header.tsx */}
+        <Content />
+      </div>
+```
+
+## One more component
+
+
