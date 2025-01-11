@@ -12,6 +12,10 @@ const Content = () => {
     console.log('I was clicked');
   }
 
+  const handleClick2 = (name: string) => {
+    console.log(`${name} was clicked`);
+  }
+
   return (
     <main>
       <a href="https://vite.dev" target="_blank">
@@ -21,7 +25,11 @@ const Content = () => {
         <img src={reactLogo} className="logo react" alt="React logo" />
       </a>
       <h1>Vite + React</h1>
+
       <button onClick={handleClick}>Click me</button>  {/* this is a function reference */}
+      <button onClick={() => handleClick2('Dave')}>Click me</button>  
+
+
       <p>Hello {handleNameChange()}!</p>  {/* this is a function call */}
     </main>
   )

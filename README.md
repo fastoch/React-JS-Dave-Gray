@@ -255,19 +255,26 @@ In this chapter, we'll learn how to add click events to our React components.
 In React, we can use **event handlers** to handle user interactions.  
 Let's do that in our `Content.tsx` component.  
 
-We first add the following function in our Content component, before the return statement:
+## Basic click event example
+
+We first add a `handleClick` function to our Content component, before the return statement:
 ```tsx
-const handleClick = () => {
-  console.log('I was clicked');
-}
+const Content = () => {
+  const handleClick = () => {
+    console.log('I was clicked');
+  }
 ```
 
 Then, we add the following code to the return statement:
+```tsx
+<button onClick={handleClick}>Click me</button> 
+```
 
+Open the console (Ctrl+Shift+K on Firefox) and click the button to see the message.  
 
 ---
 
-## Function call vs Function reference
+### Function call vs Function reference (side note)
 
 In the following code, we can see the difference between a function call and a function reference.
   - Without parentheses: Pass the function as a reference (for event handlers).
@@ -296,4 +303,38 @@ const Content = () => {
 
 ---
 
+## Passing data to event handlers
 
+What if we wanted to pass in a parameter to our `handleClick` function?  
+We need to use an anonymous function to pass in a parameter.
+
+```tsx
+const Content = () => {
+  const handleClick = () => {
+    console.log('I was clicked');
+  }
+
+  const handleClick2 = (name: string) => {
+    console.log(`${name} was clicked`);
+  }
+
+  return (
+    <main>
+      <button onClick={handleClick}>Click me</button>  {/* without parameter */}
+      <button onClick={() => handleClick2('Dave')}>Click me</button>  {/* with parameter */}
+    </main>
+  )
+}
+```
+
+We don't need inner curly braces around `handleClick2('Dave')` because it's a single-line function.  
+For single-line arrow functions, the curly braces and the 'return' keyword can be omitted.  
+If you were to add curly braces, you would need to explicitly use the 'return' keyword:  
+```tsx
+<button onClick={() => { return handleClick2('Dave'); }}>Click me</button>
+```
+
+
+---
+
+# Chapter 6 - 
