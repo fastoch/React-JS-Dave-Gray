@@ -213,3 +213,17 @@ This will be `Footer.tsx`.
 
 # Chapter 4 - Applying CSS styles
 
+How to apply CSS styles to React components?  
+
+You can see that we import an `App.css` file at the top of our `App.tsx` file.  
+Similarly, we import an `index.css` file at the top of our `main.tsx` file.  
+
+It's very common to create one stylesheet (.css file) for each component file.  
+However, that's not necessary in a small project, where one single stylesheet will do.  
+
+You can also **inline** the styles inside the JSX code.  
+**Example** of that: line 3 of the `Header.tsx` file.  
+The "double curlies" syntax is commonly used for passing objects in JSX, such as style objects.  
+The outer curly braces { } indicate a JavaScript expression in JSX, while the inner curly braces { }  
+define an object literal for the inline style.  
+
