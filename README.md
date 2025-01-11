@@ -93,6 +93,19 @@ we'll also explain what is JSX, and what we can do with it.
 Let's look at our `main.tsx` file (in the past, we used to have an `index.js` file instead).  
 In this file, we import our app via `import App from './App.tsx'` (line 4).  
 
+```tsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+```  
+
 In React, **each component gets its own file**.  
 And at line 8, you can see that the **App** component is injected into the **DOM**.  
 And it's injected into the element that has the id of '**root**', which is the default when you create a React project.  
@@ -128,6 +141,11 @@ This is a file we will create in the next chapter.
 
 # Chapter 3 - Functional Components
 
+>[!note]
+>Since React 17, importing React is no longer required for functional components in most cases.
+
+--
+
 Today, we'll be adding functional components to our project.  
 Because that is some of the power of React, we can create components that are **reusable**.  
 
@@ -145,6 +163,9 @@ And these other components that we will create will also need to be **imported**
 Let's create a `Header.tsx` file in our `src` folder.  
 Use **ctrl + alt + R** to seach a React snippet, and type '**rafce**' to get the React Arrow Function Component.  
 This will automatically create a function named after the file name (Header in our case).  
+
+We can remove the `import React` statement (non longer needed since React 17).  
+Current React version is 19 (2025).  
 
 Note that we're not bound to use <div>, it's very easy to get caught up just using divs when using React.  
 But it's best to stick with the semantic HTML tags.  
@@ -167,6 +188,7 @@ function App() {
 Same steps as before:
 - Let's create a new file named `Content.tsx` in our `src` folder.  
 - Then press **ctrl + alt + R** and type '**rafce**' to get the React Arrow Function Component.  
+- remove the `import React` statement
 - Replace the <div> tag with a <main> tag.  
 - import the `Content` component into the `App.tsx` file
 - apply this new component to the return statement of the `App()` function
@@ -183,4 +205,11 @@ function App() {
 
 ## One more component
 
+This will be `Footer.tsx`.
+- press ctrl + alt + R then type 'rafce'
+- remove the `import React` statement
+
+---
+
+# Chapter 4 - Applying CSS styles
 
