@@ -79,6 +79,15 @@ The list of **dependencies** is important because this is how Node knows which d
 We will explore the App component, which is the default component created in any new React project.  
 we'll also explain what is JSX, and what we can do with it.  
 
+---
+
+>[!important]
+>Web pages are not able to render .tsx code directly without compiling to JavaScript.    
+>Websites that appear to run .tsx directly are actually using a build process that compiles   
+>the TypeScript and JSX into JavaScript, and then the compiled JavaScript is executed.
+
+---
+
 ## 'src' folder
 
 Let's look at our `main.tsx` file (in the past, we used to have an `index.js` file instead).  
