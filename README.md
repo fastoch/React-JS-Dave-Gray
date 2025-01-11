@@ -88,7 +88,7 @@ we'll also explain what is JSX, and what we can do with it.
 
 ---
 
-## 'src' folder
+## The 'src' folder
 
 Let's look at our `main.tsx` file (in the past, we used to have an `index.js` file instead).  
 In this file, we import our app via `import App from './App.tsx'` (line 4).  
