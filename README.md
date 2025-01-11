@@ -143,3 +143,25 @@ Once we've created our Header component, we need to import it into the `App.tsx`
 `import Header from './Header.tsx'`  
 
 And then we can use it in the return statement of our `App()` function to make it appear on the web page.  
+```tsx
+function App() {
+  const [count, setCount] = useState(0)
+
+  const handleNameChange = () => {
+    const names = ['Bob', 'Kevin', 'Dave'];
+    const int = Math.floor(Math.random() * 3); // 0,1,2
+    return names[int];
+  }
+
+  return (
+    <>
+      <div>
+        <Header />  {/* this component is imported from Header.tsx */}
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+```
