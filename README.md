@@ -241,9 +241,9 @@ The "double curlies" syntax is commonly used for passing objects in JSX, such as
 The outer curly braces { } indicate a JavaScript expression in JSX, while the inner curly braces { }  
 define an object literal for the inline style.  
 
->[!important]
-If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
-component file where you want to use it.  
+>[!important]  
+>If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
+>component file where you want to use it.  
 
 ---
 
