@@ -241,9 +241,9 @@ The "double curlies" syntax is commonly used for passing objects in JSX, such as
 The outer curly braces { } indicate a JavaScript expression in JSX, while the inner curly braces { }  
 define an object literal for the inline style.  
 
-> [!important] 
-> If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
-> component file where you want to use it.  
+>[!important]
+>If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
+>component file where you want to use it.  
 
 ---
 
@@ -254,6 +254,10 @@ In this chapter, we'll learn how to add click events to our React components.
 
 In React, we can use **event handlers** to handle user interactions.  
 Let's do that in our `Content.tsx` component.  
+
+For a better development experience (**DX**), we can install the React Dev Tools browser extension:  
+https://reactjs.org/link/react-devtools  
+
 
 ## Basic click event example
 
@@ -267,7 +271,7 @@ const Content = () => {
 
 Then, we add the following code to the return statement:
 ```tsx
-<button onClick={handleClick}>Click me</button> 
+<button onClick={handleClick}>I</button> 
 ```
 
 Open the console (Ctrl+Shift+K on Firefox) and click the button to see the message.  
@@ -294,7 +298,7 @@ const Content = () => {
 
   return (
     <main>
-      <button onClick={handleClick}>Click me</button>  {/* this is a function reference */}
+      <button onClick={handleClick}>I</button>  {/* this is a function reference */}
       <p>Hello {handleNameChange()}!</p>  {/* this is a function call */}
     </main>
   )
@@ -305,8 +309,9 @@ const Content = () => {
 
 ## Passing data to event handlers
 
-What if we wanted to pass in a parameter to our `handleClick` function?  
-We need to use an anonymous function to pass in a parameter.
+What if we wanted to pass in an argument to our `handleClick` function?  
+We need to use an **anonymous function** to pass in this argument.  
+Let's write a second function that takes in a string argument.  
 
 ```tsx
 const Content = () => {
@@ -320,20 +325,69 @@ const Content = () => {
 
   return (
     <main>
-      <button onClick={handleClick}>Click me</button>  {/* without parameter */}
-      <button onClick={() => handleClick2('Dave')}>Click me</button>  {/* with parameter */}
+      <button onClick={handleClick}>I</button>  {/* function reference */}
+      <button onClick={() => handleClick2('Dave')}>Dave</button>  
     </main>
   )
 }
 ```
 
+*Note 1:*
 We don't need inner curly braces around `handleClick2('Dave')` because it's a single-line function.  
-For single-line arrow functions, the curly braces and the 'return' keyword can be omitted.  
-If you were to add curly braces, you would need to explicitly use the 'return' keyword:  
+**For single-line arrow functions, the curly braces and the 'return' keyword can be omitted**.  
+
+If you were to add curly braces, you would need to explicitly use the 'return' keyword like this:  
 ```tsx
-<button onClick={() => { return handleClick2('Dave'); }}>Click me</button>
+<button onClick={() => { return handleClick2('Dave'); }}>Dave</button>
 ```
 
+*Note 2:*
+In the first example, the `handleClick` function is referenced, which means it isn't called until we click the button.  
+In the second example, the anonymous function `() =>` is called when we click the button, which in turn calls the `handleClick2` function.  
+
+---
+
+Let's have one more example.  
+We're going to pass the event object as an argument to a `handleClick3()` function:  
+
+```tsx
+const Content = () => {
+  const handleClick = () => {
+    console.log('I was clicked');
+  }
+
+  const handleClick2 = (name: string) => {
+    console.log(`${name} was clicked`);
+  }
+
+  const handleClick3 = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log((e.target as HTMLButtonElement).innerText); 
+  }
+
+  return (
+    <main>
+      <button onClick={handleClick}>I</button>  {/* function reference */}
+      <button onClick={() => handleClick2('Dave')}>Dave</button>  
+      <button onClick={(e) => handleClick3(e)}>Click me</button>
+    </main>
+  )
+}
+```
+
+**IMPORTANT**:  
+We had to use **type assertion** in `console.log((e.target as HTMLButtonElement).innerText);`  
+because TypeScript doesn't know that e.target is specifically an HTMLButtonElement.  
+
+We could also have used a **type guard** to check if the target is an HTMLButtonElement:  
+```tsx
+const handleClick3 = (e: React.MouseEvent<HTMLButtonElement>) => {
+  if (e.target instanceof HTMLButtonElement) {
+    console.log(e.target.innerText);
+  }
+}
+```
+
+Obviously, Reacts can listen for many kinds of events, like onDoubleClick, onMouseOver, onMouseOut, etc.
 
 ---
 

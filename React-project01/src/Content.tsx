@@ -1,5 +1,6 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import './Content.css'
 
 const Content = () => {
   const handleNameChange = () => {
@@ -16,6 +17,10 @@ const Content = () => {
     console.log(`${name} was clicked`);
   }
 
+  const handleClick3 = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log((e.target as HTMLButtonElement).innerText);
+  }
+
   return (
     <main>
       <a href="https://vite.dev" target="_blank">
@@ -26,9 +31,11 @@ const Content = () => {
       </a>
       <h1>Vite + React</h1>
 
-      <button onClick={handleClick}>Click me</button>  {/* this is a function reference */}
-      <button onClick={() => handleClick2('Dave')}>Click me</button>  
-
+      <div className='button-container'>
+        <button onClick={handleClick}>I</button>  {/* this is a function reference */}
+        <button onClick={() => handleClick2('Dave')}>Dave</button>  
+        <button  onClick={(e) => handleClick3(e)}>Click me</button>
+      </div>
 
       <p>Hello {handleNameChange()}!</p>  {/* this is a function call */}
     </main>
