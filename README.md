@@ -134,8 +134,8 @@ Note that **objects** or **booleans** cannot be rendered to the page via JS expr
 To **comment** out a line of JSX code, use `{/* your code here */}`.  
 
 **Practical example**: lines 5 to 9 + line 20 of the `Content.tsx` file.  
->Using a function to render a randomly generated name.  
-This is a file we will create in the next chapter.
+We will be using a function to render a randomly generated name.  
+`Content.tsx` will be created in the next chapter.
 
 ---
 
@@ -144,7 +144,7 @@ This is a file we will create in the next chapter.
 >[!note]
 >Since React 17, importing React is no longer required for functional components in most cases.
 
---
+---
 
 Today, we'll be adding functional components to our project.  
 Because that is some of the power of React, we can create components that are **reusable**.  
@@ -242,8 +242,8 @@ The outer curly braces { } indicate a JavaScript expression in JSX, while the in
 define an object literal for the inline style.  
 
 >[!important]
->If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
->component file where you want to use it.  
+If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
+component file where you want to use it.  
 
 ---
 
