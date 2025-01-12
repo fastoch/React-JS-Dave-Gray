@@ -387,8 +387,10 @@ const handleClick3 = (e: React.MouseEvent<HTMLButtonElement>) => {
 }
 ```
 
-Obviously, Reacts can listen for many kinds of events, like onDoubleClick, onMouseOver, onMouseOut, etc.
+Obviously, React can listen for many different events: onDoubleClick, onMouseOver, onMouseOut, etc.
 
 ---
 
-# Chapter 6 - 
+# Chapter 6 - useState Hook
+
+

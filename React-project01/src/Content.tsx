@@ -37,7 +37,7 @@ const Content = () => {
         <button  onClick={(e) => handleClick3(e)}>Click me</button>
       </div>
 
-      <p>Hello {handleNameChange()}!</p>  {/* this is a function call */}
+      <p>Hello {handleNameChange()}!</p>  {/* this function is called when the page loads */}
     </main>
   )
 }
