@@ -393,4 +393,59 @@ Obviously, React can listen for many different events: onDoubleClick, onMouseOve
 
 # Chapter 6 - useState Hook
 
+React Hooks are **functions** that allow functional components to access and use React features.  
+React actually was so named because it **reacts to changes** in the **state** of the **components**.  
+And when there are changes, then it re-renders the component without reloading the whole webpage.  
 
+We will work on our `Content.tsx` component.  
+
+At the top of the file, we need to import the `useState` hook:
+```tsx
+import { useState } from 'react'
+```  
+
+And we will work on improving our `handleNameChange` function:
+```tsx
+const Content = () => {
+  const [name, setName] = useState<string>('Dave');
+```
+
+The first value '**name**' will provide the current state at any given point in time.  
+The second value '**setName**' is a function that allows us to update the state.  
+They almost work like a getter and a setter.  
+
+Now we can replace our handleNameChange function in the JSX code (inside the return statement):  
+```tsx
+<p>Hello {handleNameChange()}!</p>
+```
+
+with:
+```tsx
+<p>Hello {name}!</p>
+```
+
+We also need to change our `handleNameChange` function:
+```tsx
+const handleNameChange = () => {
+  const names = ['Bob', 'Kevin', 'Dave'];
+  const int = Math.floor(Math.random() * 3); // 0,1,2
+  return names[int];
+}
+```
+
+becomes:
+```tsx
+const handleNameChange = () => {
+  const names = ['Bob', 'Kevin', 'Dave'];
+  const int = Math.floor(Math.random() * 3); // 0,1,2
+  setName(names[int]);
+}
+```
+
+Now, `handleNameChange` will set a name as the current state.  
+And we will call this function when we click on a button.  
+```tsx
+<button onClick={handleNameChange}>Change name</button>
+```
+
+Now, clicking this button will change the name displayed in `<p>Hello {name}!</p>`.

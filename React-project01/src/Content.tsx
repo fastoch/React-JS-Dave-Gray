@@ -1,12 +1,15 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './Content.css'
+import { useState } from 'react'
 
 const Content = () => {
+  const [name, setName] = useState('Dave'); // 'Dave' is the default state
+
   const handleNameChange = () => {
     const names = ['Bob', 'Kevin', 'Dave'];
     const int = Math.floor(Math.random() * 3); // 0,1,2
-    return names[int];
+    setName(names[int]);
   }
 
   const handleClick = () => {
@@ -32,12 +35,13 @@ const Content = () => {
       <h1>Vite + React</h1>
 
       <div className='button-container'>
-        <button onClick={handleClick}>I</button>  {/* this is a function reference */}
+        <button onClick={handleClick}>I</button>  {/* this is a function reference, not a function call */}
         <button onClick={() => handleClick2('Dave')}>Dave</button>  
-        <button  onClick={(e) => handleClick3(e)}>Click me</button>
+        <button onClick={(e) => handleClick3(e)}>Click me</button>  
+        <button onClick={handleNameChange}>Change name</button>
       </div>
 
-      <p>Hello {handleNameChange()}!</p>  {/* this function is called when the page loads */}
+      <p>Hello {name}!</p>  
     </main>
   )
 }
