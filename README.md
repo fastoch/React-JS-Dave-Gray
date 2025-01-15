@@ -448,4 +448,19 @@ And we will call this function when we click on a button.
 <button onClick={handleNameChange}>Change name</button>
 ```
 
-Now, clicking this button will change the name displayed in `<p>Hello {name}!</p>`.
+Now, clicking this button will change the name displayed in `<p>Hello {name}!</p>`.  
+
+>[!important]
+>We need to use **const** for the state variable because we don't want to allow the state to  
+>be changed outside of the component.  
+
+---
+
+Common mistake when incrementing a useState variable:
+https://www.perplexity.ai/search/explain-common-mistake-when-in-DS5dujvzQeusS7_p3IheoQ
+
+---
+
+# Chapter 7 - Lists & Keys
+
+First of all, read the information provided in the above perplexity link and take notes.
