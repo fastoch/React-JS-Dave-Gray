@@ -499,3 +499,38 @@ and ensuring more predictable behavior in your React components.
 
 # Chapter 7 - Lists & Keys
 
+... from 63 minutes to 95 minutes ...  
+
+We add the following **useState** statement in our `Content.tsx` file:
+```tsx
+const Content = () => {
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: false,
+      item: 'One half pound bag of Cocoa Covered Almonds Unsalted'
+    },
+    {
+      id: 2,
+      checked: false,
+      item: 'Item 2'
+    },
+    {
+      id: 3,
+      checked: false,
+      item: 'Item 3'
+    }
+  ]);
+```
+
+Then, we add a `<ul>` tag in our **JSX** code:
+```tsx
+return(
+  <main>
+      <ul>
+        {items.map((item) => (
+          <li></li>
+        ))}
+      </ul>
+)
+```
