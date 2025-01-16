@@ -54,6 +54,14 @@ The exact name is **ES7+ React/Redux/React-Native snippets**.
 
 ---
 
+**IMPORTANT**:
+Every time we clone a React project from GitHub, we need to run `npm install` to install the dependencies.  
+Then we can run `npm run dev` to start our dev server.  
+Before running `npm install`, make sure you `cd` into the project folder, and also check if Node.js is installed.  
+![alt text](image.png)
+
+---
+
 ## The node_modules folder
 
 The **node_modules** folder is a directory in **Node.js** projects that stores third-party libraries and dependencies.  
