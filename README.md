@@ -525,12 +525,21 @@ const Content = () => {
 
 Then, we add a `<ul>` tag in our **JSX** code:
 ```tsx
-return(
+return (
   <main>
-      <ul>
-        {items.map((item) => (
-          <li></li>
-        ))}
-      </ul>
-)
+    <ul>
+      {items.map((item) => (
+        <li className="item" key={item.id}>
+          <input 
+            type="checkbox" 
+            checked={item.checked}
+          />
+          <label>{item.item} </label>
+          <button>x</button>
+        </li>
+      ))}
+    </ul>
 ```
+
+**IMPORTANT:**  
+Each list item in React needs a **key** atttribute.  

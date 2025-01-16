@@ -46,7 +46,14 @@ const Content = () => {
     <main>
       <ul>
         {items.map((item) => (
-          <li></li>
+          <li className="item" key={item.id}>
+            <input 
+              type="checkbox" 
+              checked={item.checked}
+            />
+            <label>{item.item} </label>
+            <button>x</button>
+          </li>
         ))}
       </ul>
 
