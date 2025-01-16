@@ -6,6 +6,24 @@ import { useState } from 'react'
 const Content = () => {
   const [name, setName] = useState('Dave'); // 'Dave' is the default state
 
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: false,
+      item: 'One half pound bag of Cocoa Covered Almonds Unsalted'
+    },
+    {
+      id: 2,
+      checked: false,
+      item: 'Item 2'
+    },
+    {
+      id: 3,
+      checked: false,
+      item: 'Item 3'
+    }
+  ]);
+
   const handleNameChange = () => {
     const names = ['Bob', 'Kevin', 'Dave'];
     const int = Math.floor(Math.random() * 3); // 0,1,2

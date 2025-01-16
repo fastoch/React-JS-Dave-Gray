@@ -57,7 +57,7 @@ The exact name is **ES7+ React/Redux/React-Native snippets**.
 **IMPORTANT**:
 Every time we clone a React project from GitHub, we need to run `npm install` to install the dependencies.  
 Then we can run `npm run dev` to start our dev server.  
-Before running `npm install`, make sure you `cd` into the project folder, and also check if Node.js is installed.  
+Before running `npm install`, we need to `cd` into the project folder.
 ![alt text](image.png)
 
 ---
@@ -464,11 +464,38 @@ Now, clicking this button will change the name displayed in `<p>Hello {name}!</p
 
 ---
 
-Common mistake when incrementing a useState variable:
-https://www.perplexity.ai/search/explain-common-mistake-when-in-DS5dujvzQeusS7_p3IheoQ
+## Common mistake when incrementing a useState variable
+
+https://www.perplexity.ai/search/explain-common-mistake-when-in-DS5dujvzQeusS7_p3IheoQ  
+
+The incorrect approach often looks like this: 
+```tsx
+const [count, setCount] = useState(0);
+
+const increment = () => {
+  setCount(count + 1); // Incorrect
+};
+``` 
+
+This method is problematic because:
+- State updates in React are **asynchronous**
+- React may batch multiple setState calls for performance reasons
+- The current state value captured in the component's scope may not be the most up-to-date when the state update occurs
+
+To avoid this issue, use **the functional update form of setState**:
+```tsx
+const [count, setCount] = useState(0);
+
+const increment = () => {
+  setCount(prevCount => prevCount + 1); // Correct
+}
+```
+
+This approach ensures that you're always working with the most recent state value, even if multiple updates are queued or occurring asynchronously.  
+By using **the functional update form**, you guarantee that each update is based on the latest state, avoiding potential race conditions  
+and ensuring more predictable behavior in your React components.
 
 ---
 
 # Chapter 7 - Lists & Keys
 
-First of all, read the information provided in the above perplexity link and take notes.
