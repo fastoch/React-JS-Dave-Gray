@@ -534,7 +534,7 @@ return (
             type="checkbox" 
             checked={item.checked}
           />
-          <label>{item.item} </label>
+          <label>{item.item}</label>
           <button>Delete</button>
         </li>
       ))}
@@ -546,6 +546,11 @@ React needs a **key** atttribute for each list item so it can identify which ite
 Because React responds to changes in the state of the components, and re-renders the JSX code (what's in the return statement).  
 
 Now, let's replace our "Delete" text in the `<button>` tag with an icon.  
-For that, let's go to npmjs.com and search for "react-icons".  
-Copy the install cmd and paste it in the terminal: `npm install react-icons`  
+- For that, let's go to npmjs.com and search for "react-icons".  
+- Copy the install cmd and paste it in the terminal: `npm install react-icons`  
+- Then, we need to import the icon we want to use in our **Content.tsx** file: `import { FaTrashAlt } from 'react-icons/fa';`
+  - `Fa` stands for Font Awesome
+- Then, we can use the icon in our JSX code by replacing `<button>Delete</button>` with `<FaTrashAlt role="button" />`
+
+
 

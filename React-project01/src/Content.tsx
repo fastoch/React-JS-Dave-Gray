@@ -2,6 +2,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './Content.css'
 import { useState } from 'react'
+import { FaTrashAlt } from 'react-icons/fa'
 
 const Content = () => {
   const [name, setName] = useState('Dave'); // 'Dave' is the default state
@@ -51,8 +52,8 @@ const Content = () => {
               type="checkbox" 
               checked={item.checked}
             />
-            <label>{item.item} </label>
-            <button>Delete</button>
+            <label>{item.item}</label>
+            <FaTrashAlt role="button" />
           </li>
         ))}
       </ul>
