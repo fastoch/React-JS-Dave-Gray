@@ -52,7 +52,7 @@ const Content = () => {
               checked={item.checked}
             />
             <label>{item.item} </label>
-            <button>x</button>
+            <button>Delete</button>
           </li>
         ))}
       </ul>

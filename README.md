@@ -535,11 +535,17 @@ return (
             checked={item.checked}
           />
           <label>{item.item} </label>
-          <button>x</button>
+          <button>Delete</button>
         </li>
       ))}
     </ul>
 ```
 
 **IMPORTANT:**  
-Each list item in React needs a **key** atttribute.  
+React needs a **key** atttribute for each list item so it can identify which items have changed, which items have been added or removed...   
+Because React responds to changes in the state of the components, and re-renders the JSX code (what's in the return statement).  
+
+Now, let's replace our "Delete" text in the `<button>` tag with an icon.  
+For that, let's go to npmjs.com and search for "react-icons".  
+Copy the install cmd and paste it in the terminal: `npm install react-icons`  
+
