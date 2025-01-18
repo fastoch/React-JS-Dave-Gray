@@ -245,9 +245,9 @@ const Header = () => {
 }
 ```
 
-The "double curlies" syntax is commonly used for passing objects in JSX, such as style objects.  
-The outer curly braces { } indicate a JavaScript expression in JSX, while the inner curly braces { }  
-define an object literal for the inline style.  
+The "double curlies" syntax is commonly used for passing objects in JSX, such as **style** objects.  
+The outer curly braces {} indicate a **JavaScript expression** in JSX, while the inner curly braces {}  
+define an object literal for the **inline style**.  
 
 >[!important]
 >If you use one stylesheet per component, remember that every stylesheet needs to be imported in the  
@@ -640,6 +640,28 @@ And now, let's use that function in the JSX code:
   onClick={() => handleDelete(item.id)}
 />
 ```
+
+---
+
+Notice we don't get a message if our list is empty.  
+Let's add some code in the JSX part of our `Content.tsx` file:
+```tsx
+return (
+  <main>
+    { items.length ? (
+      <ul>
+      ...
+      </ul>
+    ) : (
+      <p style={{ marginTop: '2rem' }}>Your list is empty!</p>
+    )}
+```
+Now this returns the unordered list if our list is not empty, and a message if it is.  
+
+---
+
+Now we need to add the form that will allow us to add new items to our list.  
+
 
 ---
 EOF
