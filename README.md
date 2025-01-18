@@ -628,10 +628,12 @@ Of course, this will delete the item from the list.
 const handleDelete = (id: number) => {
   const listItems = items.filter((item) => item.id !== id);
   setItems(listItems);
+  localStorage.setItem('groceriesList', JSON.stringify(listItems));
 }
 ```
+The above function will actually return all items except the one with the id we're deleting.  
 
-And let's use that function in the JSX code:
+And now, let's use that function in the JSX code:
 ```tsx
 <FaTrashAlt 
   role="button" 

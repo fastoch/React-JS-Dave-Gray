@@ -34,6 +34,7 @@ const Content = () => {
   const handleDelete = (id: number) => {
     const listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
+    localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
 
   const handleNameChange = () => {
