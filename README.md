@@ -318,9 +318,12 @@ const Content = () => {
 ## Passing data to event handlers
 
 What if we wanted to pass in an argument to our `handleClick` function?  
-We need to use an **anonymous function** to pass in this argument.  
-Let's write a second function that takes in a string argument.  
 
+You can't directly call the function in the JSX code `onClick={handleClick2('Dave')}`,  
+because it would immediately execute the function when the component renders, rather than waiting for the click event.  
+We need to use an **anonymous function** to pass in the argument.  
+
+Let's write a second function that takes in a string argument:
 ```tsx
 const Content = () => {
   const handleClick = () => {
