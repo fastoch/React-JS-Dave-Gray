@@ -25,7 +25,7 @@ const Content = () => {
     }
   ]);
 
-  const handleCheck = (id) => {
+  const handleCheck = (id: number) => {
     
   }
 
@@ -54,6 +54,7 @@ const Content = () => {
           <li className="item" key={item.id}>
             <input 
               type="checkbox" 
+              onChange={() => handleCheck(item.id)}
               checked={item.checked}
             />
             <label>{item.item}</label>
