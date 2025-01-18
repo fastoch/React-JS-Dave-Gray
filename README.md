@@ -605,11 +605,23 @@ To do that, we need to add the following code to our `handleCheck` function:
 `localStorage.setItem('groceriesList', JSON.stringify(listItems));`  
 
 After adding this line of code to save the current state of our list, we still need to pull this data  
-from local storage when the page loads. To do that, 
+from the local storage when the page loads. To do that, ???
 
 ---
 
-Now, let's add a handler function for when we click the trash can icon:
+Now, let's add some interactivity to the label element of our list items:
+```tsx
+<label 
+  style={(item.checked) ? { textDecoration: 'line-through' } : undefined } 
+  onDoubleClick={() => handleCheck(item.id)}>{item.item}
+</label>
+```
+
+---
+
+Now, let's add a handler function for when we click the trash can icon.  
+Of course, this will delete the item from the list.  
+
 
 ---
 EOF

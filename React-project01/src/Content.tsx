@@ -31,6 +31,10 @@ const Content = () => {
     localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
 
+  const handleDelete = (id: number) => {
+    
+  }
+
   const handleNameChange = () => {
     const names = ['Bob', 'Kevin', 'Dave'];
     const int = Math.floor(Math.random() * 3); // 0,1,2
@@ -59,7 +63,10 @@ const Content = () => {
               onChange={() => handleCheck(item.id)}
               checked={item.checked}
             />
-            <label>{item.item}</label>
+            <label 
+              style={(item.checked) ? { textDecoration: 'line-through' } : undefined} 
+              onDoubleClick={() => handleCheck(item.id)}>{item.item}
+            </label>
             <FaTrashAlt role="button" />
           </li>
         ))}
