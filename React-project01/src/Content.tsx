@@ -26,7 +26,8 @@ const Content = () => {
   ]);
 
   const handleCheck = (id: number) => {
-    
+    const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
+    setItems(listItems);
   }
 
   const handleNameChange = () => {

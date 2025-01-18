@@ -559,9 +559,16 @@ To style the list items and the icons, we need to modify the `Content.css` file.
 Now, let's add a handler function for when we click a checkbox:
 ```tsx
 const handleCheck = (id: number) => {
-
-}
+    const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
+    setItems(listItems);
+  }
 ```
+
+**Explanation**:  
+The `handleCheck` function re-renders the list items.
+- if the item's id matches the id of the item we're checking, return a new object with the checked property toggled.
+- if the item's id doesn't match the id of the item we're checking, return the item as it is.
+- then, we set the items state to the new list of items.
 
 And now we need to add an `onChange` event in the JSX code, inside the `<input>` tag:
 ```tsx
@@ -579,6 +586,7 @@ And now we need to add an `onChange` event in the JSX code, inside the `<input>`
   ))}
 </ul>
 ```
+
 Inside the expression for the `onChange` event, we can't just call the `handleCheck` function, because  
 we need to pass in the id of the item we're checking. Which is why we're using an anonymous function.  
 
