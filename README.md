@@ -552,5 +552,11 @@ Now, let's replace our "Delete" text in the `<button>` tag with an icon.
   - `Fa` stands for Font Awesome
 - Then, we can use the icon in our JSX code by replacing `<button>Delete</button>` with `<FaTrashAlt role="button" />`
 
+The icon we're adding here is an SVG icon representing a trash can.  
 
+To style the list items and the icons, we need to modify the `Content.css` file.  
 
+Now, let's add a handler function for when we click a checkbox:
+```tsx
+
+```

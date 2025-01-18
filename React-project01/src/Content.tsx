@@ -25,6 +25,10 @@ const Content = () => {
     }
   ]);
 
+  const handleCheck = (id) => {
+    
+  }
+
   const handleNameChange = () => {
     const names = ['Bob', 'Kevin', 'Dave'];
     const int = Math.floor(Math.random() * 3); // 0,1,2
