@@ -661,6 +661,15 @@ Now this returns the unordered list if our list is not empty, and a message if i
 ---
 
 Now we need to add the form that will allow us to add new items to our list.  
+And we also need to load the items from the local storage when the page loads.
+
+---
+
+# Chapter 8 - Props & Prop Drilling
+
+Props is short for properties.  
+Prop Drilling is the process of passing props from a parent component to a child component.  
+
 
 
 ---
