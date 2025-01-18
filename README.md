@@ -566,9 +566,9 @@ To style the list items and the icons, we need to modify the `Content.css` file.
 Now, let's add a handler function for when we click a checkbox:
 ```tsx
 const handleCheck = (id: number) => {
-    const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
-    setItems(listItems);
-  }
+  const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
+  setItems(listItems);
+}
 ```
 
 **Explanation**:  
@@ -621,7 +621,20 @@ Now, let's add some interactivity to the label element of our list items:
 
 Now, let's add a handler function for when we click the trash can icon.  
 Of course, this will delete the item from the list.  
+```tsx
+const handleDelete = (id: number) => {
+  const listItems = items.filter((item) => item.id !== id);
+  setItems(listItems);
+}
+```
 
+And let's use that function in the JSX code:
+```tsx
+<FaTrashAlt 
+  role="button" 
+  onClick={() => handleDelete(item.id)}
+/>
+```
 
 ---
 EOF

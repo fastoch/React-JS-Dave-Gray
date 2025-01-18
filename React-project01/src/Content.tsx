@@ -32,7 +32,8 @@ const Content = () => {
   }
 
   const handleDelete = (id: number) => {
-    
+    const listItems = items.filter((item) => item.id !== id);
+    setItems(listItems);
   }
 
   const handleNameChange = () => {
@@ -67,7 +68,10 @@ const Content = () => {
               style={(item.checked) ? { textDecoration: 'line-through' } : undefined} 
               onDoubleClick={() => handleCheck(item.id)}>{item.item}
             </label>
-            <FaTrashAlt role="button" />
+            <FaTrashAlt 
+              role="button" 
+              onClick={() => handleDelete(item.id)}
+            />
           </li>
         ))}
       </ul>
