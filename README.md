@@ -501,6 +501,10 @@ and ensuring more predictable behavior in your React components.
 
 ... from 63 minutes to 95 minutes ...  
 
+We will create a list of items and the different handlers for checking and deleting items.
+
+---
+
 We add the following **useState** statement in our `Content.tsx` file:
 ```tsx
 const Content = () => {
@@ -542,8 +546,9 @@ return (
 ```
 
 **IMPORTANT:**  
-React needs a **key** atttribute for each list item so it can identify which items have changed, which items have been added or removed...   
-Because React responds to changes in the state of the components, and re-renders the JSX code (what's in the return statement).  
+React needs a **key** atttribute for each list item so it can identify which items have changed, which items have been added or removed... Because React responds to changes in the state of the components, and re-renders the JSX code (what's in the return statement).  
+
+---
 
 Now, let's replace our "Delete" text in the `<button>` tag with an icon.  
 - For that, let's go to npmjs.com and search for "react-icons".  
@@ -555,6 +560,8 @@ Now, let's replace our "Delete" text in the `<button>` tag with an icon.
 The icon we're adding here is an SVG icon representing a trash can.  
 
 To style the list items and the icons, we need to modify the `Content.css` file.  
+
+---
 
 Now, let's add a handler function for when we click a checkbox:
 ```tsx
@@ -590,3 +597,19 @@ And now we need to add an `onChange` event in the JSX code, inside the `<input>`
 Inside the expression for the `onChange` event, we can't just call the `handleCheck` function, because  
 we need to pass in the id of the item we're checking. Which is why we're using an anonymous function.  
 
+**IMPORTANT**:  
+Now it's important to note that this is not changing the **default state** of our list of items.  
+If we reload the page after checking all items, they will be unchecked again.  
+We need to **save the state** of the list of items in the browser's **local storage**.  
+To do that, we need to add the following code to our `handleCheck` function:
+`localStorage.setItem('groceriesList', JSON.stringify(listItems));`  
+
+After adding this line of code to save the current state of our list, we still need to pull this data  
+from local storage when the page loads. To do that, 
+
+---
+
+Now, let's add a handler function for when we click the trash can icon:
+
+---
+EOF
