@@ -719,7 +719,41 @@ If we were not already providing a value for the title prop, the default title w
 
 Now, let's list how many items we have in our list by modifying the Footer component.  
 For that, Footer needs access to the list items, but they are stored in the Content component.  
-Since Content and Footer are siblings, we need to take
+
+Since Content and Footer are siblings, we need to: 
+- take some of the data that's in the Content component
+- move it up to the App component
+- drill it down to the Footer component
+
+We will take the list items from Content and pass them to the App component.  
+For that, we will cut the following code and paste it in the App component:
+```tsx
+function App() {
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: false,
+      item: 'One half pound bag of Cocoa Covered Almonds Unsalted'
+    },
+    {
+      id: 2,
+      checked: false,
+      item: 'Item 2'
+    },
+    {
+      id: 3,
+      checked: false,
+      item: 'Item 3'
+    }
+  ]);
+```
+
+We also need to import the useState hook from React: `import { useState } from 'react';`.  
+
+And then we need to pass the items and setItems props to the Content component:
+```tsx
+<Content items={items} setItems={setItems} />
+```
 
 
 ---
