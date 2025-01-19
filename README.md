@@ -54,7 +54,7 @@ The exact name is **ES7+ React/Redux/React-Native snippets**.
 
 ---
 
-**IMPORTANT**:
+**IMPORTANT**:  
 Every time we clone a React project from GitHub, we need to run `npm install` to install the dependencies.  
 Then we can run `npm run dev` to start our dev server.  
 Before running `npm install`, we need to `cd` into the project folder.
@@ -678,9 +678,9 @@ In our `App.tsx` file, we're going to add a title to our Header component:
 <Header title="Groceries" /> 
 ```  
 
-Then, in our `Header.tsx` file, we first need to define a **Props** interface that includes this title prop.  
+Then, in our `Header.tsx` file, we first need to define a **Props** interface that includes the title prop.  
 After that, we can pass in 'props' as a parameter (of type 'Props') to the Header function.  
-Finally, in the h1 element, we can replace "Groceries List" with a JSX expression that uses the title prop.
+Finally, in the <h1> element, we can replace "Groceries List" with a JSX expression that uses the title prop.
 
 ```tsx
 interface Props {
@@ -700,6 +700,27 @@ const Header = (props: Props) => {
   )
 }
 ```
+
+## Default Props
+
+Default props allow us to set values for the props expected in the component.  
+When you first designing a component, maybe you're not receiving any data from an API nor from local storage.  
+
+After the Header function definition, we can add a defaultProps object in our `Header.tsx` file:
+```tsx
+Header.defaultProps = {
+  title: "Default Title"
+}
+```
+
+If we were not already providing a value for the title prop, the default title would be displayed instead of "Groceries".  
+
+---
+
+Now, let's list how many items we have in our list by modifying the Footer component.  
+For that, Footer needs access to the list items, but they are stored in the Content component.  
+Since Content and Footer are siblings, we need to take
+
 
 ---
 EOF
