@@ -670,7 +670,36 @@ And we also need to load the items from the local storage when the page loads.
 Props is short for properties.  
 Prop Drilling is the process of passing props from a parent component to a child component.  
 
+In our `App.tsx` file, we currently have 3 components: `Header`, `Content` and `Footer`.  
+We're going to work with the Header first, and we want to work with **Props** inside the Header.  
 
+In our `App.tsx` file, we're going to add a title to our Header component:
+```tsx
+<Header title="Groceries" /> 
+```  
+
+Then, in our `Header.tsx` file, we first need to define a **Props** interface that includes this title prop.  
+After that, we can pass in 'props' as a parameter (of type 'Props') to the Header function.  
+Finally, in the h1 element, we can replace "Groceries List" with a JSX expression that uses the title prop.
+
+```tsx
+interface Props {
+  title: string
+}
+
+const Header = (props: Props) => {
+  return (
+    <header style={{
+      backgroundColor: 'royalblue',
+      color: '#dda',
+      borderRadius: '10px',
+      padding: '0px 10px'
+    }}>  
+      <h1 style={{ margin: '0' }}>{props.title}</h1>
+    </header>
+  )
+}
+```
 
 ---
 EOF

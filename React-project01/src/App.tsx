@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <Header />  {/* this component is imported from Header.tsx */}
+        <Header title="Groceries" />  {/* this component is imported from Header.tsx */}
         <Content />
         <Footer />
       </div>
