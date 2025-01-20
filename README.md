@@ -660,7 +660,8 @@ Now this returns the unordered list if our list is not empty, and a message if i
 
 ---
 
-Now we need to add the form that will allow us to add new items to our list.  
+**Remaining tasks:**
+We need to add the form that will allow us to add new items to our list.  
 And we also need to load the items from the local storage when the page loads.
 
 ---
@@ -678,9 +679,9 @@ In our `App.tsx` file, we're going to add a title to our Header component:
 <Header title="Groceries" /> 
 ```  
 
-Then, in our `Header.tsx` file, we first need to define a **Props** interface that includes the title prop.  
+Then, in our `Header.tsx` file, we first need to define a **Props** interface that includes the 'title' prop.  
 After that, we can pass in 'props' as a parameter (of type 'Props') to the Header function.  
-Finally, in the <h1> element, we can replace "Groceries List" with a JSX expression that uses the title prop.
+Finally, in the <h1> element, we can replace "Groceries List" with a JSX expression that uses the 'title' prop.
 
 ```tsx
 interface Props {
@@ -699,23 +700,11 @@ const Header = (props: Props) => {
     </header>
   )
 }
-```
-
-## Default Props
-
-Default props allow us to set values for the props expected in the component.  
-When you first designing a component, maybe you're not receiving any data from an API nor from local storage.  
-
-After the Header function definition, we can add a defaultProps object in our `Header.tsx` file:
-```tsx
-Header.defaultProps = {
-  title: "Default Title"
-}
-```
-
-If we were not already providing a value for the title prop, the default title would be displayed instead of "Groceries".  
+```  
 
 ---
+
+## Prop Drilling
 
 Now, let's list how many items we have in our list by modifying the Footer component.  
 For that, Footer needs access to the list items, but they are stored in the Content component.  
@@ -724,6 +713,8 @@ Since Content and Footer are siblings, we need to:
 - take some of the data that's in the Content component
 - move it up to the App component
 - drill it down to both the Footer and the Content components
+
+---
 
 First, we will take the list items from Content and pass them to the App component.  
 For that, we will cut the following code and paste it in the App component:
@@ -785,14 +776,16 @@ After that, of course, we need to pass those functions to the Content component:
 ```
 
 Now, the Content component's logic has been moved to the App component, and it will be accessible  
-to both the Footer and the Content components.  
+to the Content component thanks to **prop drilling**.  
 
-But we must pass in the props to the Content function:
+Let's not forget to pass in the props to the Content function:
 ```tsx
-const Content = (props: Props)
+const Content = (props: Props) => {
+  ...
+}
 ```
 
-And to make it work, we need to add a new interface in the `Content.tsx` file:
+And to make it work with TypeScript, we need to add a new interface at the top of our `Content.tsx` file:
 ```tsx
 interface Props {
   items: {
@@ -809,6 +802,48 @@ interface Props {
   handleDelete: (id: number) => void;
 }
 ```
+
+---
+
+Now we need to use **prop drilling** to pass in the needed props to the Footer component.  
+In the `App.tsx` file, we need to add a new prop to the Footer component:
+```tsx
+<Footer length={items.length} />
+```
+
+Then, we need to add a new interface to the top of our `Footer.tsx` file:
+```tsx
+interface Props {
+  length: number;
+}
+```
+
+And now we can add a paragraph in the JSX of the Footer component to display the number of items in the list:
+```tsx
+const Footer = (props: Props) => {
+  const today = new Date();
+
+  return (
+    <footer>
+      <p>
+        Your list contains {props.length} {props.length === 1 ? "item" : "items"} 
+      </p>
+      <p>
+        Copyright &copy; {today.getFullYear()}
+      </p>
+    </footer>
+  )
+}
+```
+
+---
+
+## Creating a new component for the unordered list
+
+We can take the unordered list from the Content component and create a new component for it.  
+Let's create a new file called `ItemList.tsx`, then press Ctrl+Alt+R and type '**rafce**':
+```tsx
+
 
 ---
 

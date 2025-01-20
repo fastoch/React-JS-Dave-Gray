@@ -1,10 +1,14 @@
-const Footer = () => {
+interface Props {
+  length: number;
+}
+
+const Footer = (props: Props) => {
   const today = new Date();
-  
+
   return (
     <footer>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <p>
+        Your list contains {props.length} {props.length === 1 ? "item" : "items"} 
       </p>
       <p>
         Copyright &copy; {today.getFullYear()}
