@@ -841,9 +841,29 @@ const Footer = (props: Props) => {
 ## Creating a new component for the unordered list
 
 We can take the unordered list from the Content component and create a new component for it.  
-Let's create a new file called `ItemList.tsx`, then press Ctrl+Alt+R and type '**rafce**':
+Let's create a new file called `ItemList.tsx`, then press Ctrl+Alt+R and type '**rafce**' to create a new functional component.  
+We'll also add a new interface that includes all the props that we need to pass in to the ItemList component:
 ```tsx
+interface Props {
+  items: {
+    id: number;
+    checked: boolean;
+    item: string;
+  }[];
+  handleCheck: (id: number) => void;
+  handleDelete: (id: number) => void;
+}
 
+const ItemList = (props: Props) => {
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+export default ItemList
+```
 
 ---
 
