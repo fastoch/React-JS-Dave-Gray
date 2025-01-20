@@ -2,7 +2,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './Content.css'
 import { useState } from 'react'
-import { FaTrashAlt } from 'react-icons/fa'
+import ItemList from './ItemList'
 
 interface Props {
   items: {
@@ -10,11 +10,6 @@ interface Props {
     checked: boolean;
     item: string;
   }[];
-  setItems: React.Dispatch<React.SetStateAction<{
-    id: number;
-    checked: boolean;
-    item: string;
-  }[]>>;
   handleCheck: (id: number) => void;
   handleDelete: (id: number) => void;
 }
@@ -42,26 +37,14 @@ const Content = (props: Props) => {
 
   return (
     <main>
+      {/* if list is not empty, display the list */}
       { props.items.length ? (
-        <ul>
-          {props.items.map((item) => (
-            <li className="item" key={item.id}>
-              <input 
-                type="checkbox" 
-                onChange={() => props.handleCheck(item.id)}
-                checked={item.checked}
-              />
-              <label 
-                style={(item.checked) ? { textDecoration: 'line-through' } : undefined} 
-                onDoubleClick={() => props.handleCheck(item.id)}>{item.item}
-              </label>
-              <FaTrashAlt 
-                role="button" 
-                onClick={() => props.handleDelete(item.id)}
-              />
-            </li>
-          ))}
-        </ul>
+        <ItemList 
+          items={props.items}
+          handleCheck={props.handleCheck}
+          handleDelete={props.handleDelete}
+        />
+      // if list is empty, display a "list is empty" message
       ) : (
         <p style={{ marginTop: '2rem' }}>Your list is empty!</p>
       )}

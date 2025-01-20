@@ -865,6 +865,10 @@ const ItemList = (props: Props) => {
 export default ItemList
 ```
 
+Now, we can cut the unordered list from the Content component and paste it in the ItemList component.  
+Then, let's import the ItemList component in the Content component and replace the unordered list with the ItemList component:
+
+
 ---
 
 # Chapter 9 - 

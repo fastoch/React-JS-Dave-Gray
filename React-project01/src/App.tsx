@@ -40,11 +40,10 @@ function App() {
       <div>
         <Header title="Groceries" />  {/* this component is imported from Header.tsx */}
         <Content 
-          items={items} 
-          setItems={setItems} 
+          items={items}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
-        /> {/* passing props to Content component */}
+        /> 
         <Footer length={items.length} /> {/* length of the array that contains the items */}
       </div>
     </>
