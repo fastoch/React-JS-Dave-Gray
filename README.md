@@ -723,9 +723,9 @@ For that, Footer needs access to the list items, but they are stored in the Cont
 Since Content and Footer are siblings, we need to: 
 - take some of the data that's in the Content component
 - move it up to the App component
-- drill it down to the Footer component
+- drill it down to both the Footer and the Content components
 
-We will take the list items from Content and pass them to the App component.  
+First, we will take the list items from Content and pass them to the App component.  
 For that, we will cut the following code and paste it in the App component:
 ```tsx
 function App() {
@@ -748,13 +748,71 @@ function App() {
   ]);
 ```
 
-We also need to import the useState hook from React: `import { useState } from 'react';`.  
+In the `App.tsx` file, we now need to import the useState hook from React: `import { useState } from 'react';`.  
 
-And then we need to pass the items and setItems props to the Content component:
+Then, in the return statement of `App.tsx`, we need to pass the items and setItems props to the Content component:
 ```tsx
-<Content items={items} setItems={setItems} />
+<Content 
+  items={items} 
+  setItems={setItems} 
+/>
 ```
 
+But that's not enough, because `handleDelete` and `handleCheck` functions also need to access those items.  
+So we will also cut the following code from `Content.tsx` and paste it in the `App.tsx` file:
+```tsx
+const handleCheck = (id: number) => {
+  const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
+  setItems(listItems);
+  localStorage.setItem('groceriesList', JSON.stringify(listItems));
+}
+
+const handleDelete = (id: number) => {
+  const listItems = items.filter((item) => item.id !== id);
+  setItems(listItems);
+  localStorage.setItem('groceriesList', JSON.stringify(listItems));
+}
+```
+
+After that, of course, we need to pass those functions to the Content component:
+```tsx
+<Content 
+  items={items} 
+  setItems={setItems} 
+  handleCheck={handleCheck}
+  handleDelete={handleDelete}
+/>
+```
+
+Now, the Content component's logic has been moved to the App component, and it will be accessible  
+to both the Footer and the Content components.  
+
+But we need to pass in the props to the Content function:
+```tsx
+const Content = (props: Props)
+```
+
+To make it work, we need to add a new interface in the `Content.tsx` file:
+```tsx
+interface Props {
+  items: {
+    id: number;
+    checked: boolean;
+    item: string;
+  }[];
+  setItems: React.Dispatch<React.SetStateAction<{
+    id: number;
+    checked: boolean;
+    item: string;
+  }[]>>;
+  handleCheck: (id: number) => void;
+  handleDelete: (id: number) => void;
+}
+```
+
+---
+
+# Chapter 9 - 
 
 ---
 EOF
