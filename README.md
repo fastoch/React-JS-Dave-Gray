@@ -787,12 +787,12 @@ After that, of course, we need to pass those functions to the Content component:
 Now, the Content component's logic has been moved to the App component, and it will be accessible  
 to both the Footer and the Content components.  
 
-But we need to pass in the props to the Content function:
+But we must pass in the props to the Content function:
 ```tsx
 const Content = (props: Props)
 ```
 
-To make it work, we need to add a new interface in the `Content.tsx` file:
+And to make it work, we need to add a new interface in the `Content.tsx` file:
 ```tsx
 interface Props {
   items: {
