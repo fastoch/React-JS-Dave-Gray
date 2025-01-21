@@ -865,13 +865,140 @@ const ItemList = (props: Props) => {
 export default ItemList
 ```
 
-Now, we can cut the unordered list from the Content component and paste it in the ItemList component.  
-Then, let's import the ItemList component in the Content component and replace the unordered list with the ItemList component:
+Now, we can cut the unordered list from the Content component and paste it in the **ItemList** component:  
+```tsx
+const ItemList = (props: Props) => {
+  return (
+    <ul>
+      {props.items.map((item) => (
+        <li className="item" key={item.id}>
+          <input 
+            type="checkbox" 
+            onChange={() => props.handleCheck(item.id)}
+            checked={item.checked}
+          />
+          <label 
+            style={(item.checked) ? { textDecoration: 'line-through' } : undefined} 
+            onDoubleClick={() => props.handleCheck(item.id)}>{item.item}
+          </label>
+          <FaTrashAlt 
+            role="button" 
+            onClick={() => props.handleDelete(item.id)}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
 
+Then, let's import the ItemList component in the **Content** component, and replace the unordered list with the ItemList component:
+```tsx
+return (
+  <main>
+    {/* if list is not empty, display the list */}
+    { props.items.length ? (
+      <ItemList 
+        items={props.items}
+        handleCheck={props.handleCheck}
+        handleDelete={props.handleDelete}
+      />
+    // if list is empty, display a "list is empty" message
+    ) : (
+      <p style={{ marginTop: '2rem' }}>Your list is empty!</p>
+    )}
+```
+
+Of course, the **trash can** icon needs to be moved from the Content component to the ItemList component.  
+`import { FaTrashAlt } from "react-icons/fa";`  
+
+## Creating a new component for the individual list items
+
+Now, we can make another re-usable component for the list items.  
+Let's create a new file called `LineItem.tsx`, then press Ctrl+Alt+R and type '**rafce**' to create a new functional component.  
+
+- Let's start by importing the **trash can** icon.  
+- Then, cut the <li> element from the **ItemList.tsx** component and paste it in the **LineItem.tsx** file.
+```tsx
+const LineItem = (props: Props) => {
+  return (
+    <li className="item" key={props.item.id}>
+      <input 
+        type="checkbox" 
+        onChange={() => props.handleCheck(props.item.id)}
+        checked={props.item.checked}
+      />
+      <label 
+        style={(props.item.checked) ? { textDecoration: 'line-through' } : undefined} 
+        onDoubleClick={() => props.handleCheck(props.item.id)}>{props.item.item}
+      </label>
+      <FaTrashAlt 
+        role="button" 
+        onClick={() => props.handleDelete(props.item.id)}
+      />
+    </li>
+  )
+}
+```
+
+- Let's add a new interface to the top of the **LineItem.tsx** file (to make TypeScript happy):
+```tsx
+interface Props {
+  item: {
+    id: number;
+    checked: boolean;
+    item: string;
+  };
+  handleCheck: (id: number) => void;
+  handleDelete: (id: number) => void;
+}
+```
+
+- Then, in the **ItemList.tsx** component, we need to 
+  - import the **LineItem.tsx** component 
+  - and replace the <li> element with the **LineItem** component, along with the props we need to pass down:	
+```tsx
+import LineItem from './LineItem'
+
+interface Props {
+  items: {
+    id: number;
+    checked: boolean;
+    item: string;
+  }[];
+  handleCheck: (id: number) => void;
+  handleDelete: (id: number) => void;
+}
+
+const ItemList = (props: Props) => {
+  return (
+    <ul>
+      {props.items.map((item) => (
+        <LineItem 
+          item={item}
+          key={item.id}
+          handleCheck={props.handleCheck}
+          handleDelete={props.handleDelete}
+        />
+      ))}
+    </ul>
+  )
+}
+```
+Note that we need to supply the **key** prop to the **LineItem** component, so that React can keep track of the items in the list.  
+
+And that's it! We've created a reusable component for each item in our list.
+
+## Component tree
+
+Think about the **component tree** we have built so far:
+- At the top, we have the **App.tsx** component, which contains the Header, Content and Footer components.
+  - The **Content.tsx** component contains the unordered list (**ItemList.tsx**), which is a child of the Content component.
+    - Now, the **ItemList.tsx** component contains the list items (**LineItem.tsx**), which are children of the ItemList component.
 
 ---
 
-# Chapter 9 - 
+# Chapter 9 - Controlled Component Inputs
 
 ---
 EOF
