@@ -25,6 +25,8 @@ const LineItem = (props: Props) => {
       <FaTrashAlt 
         role="button" 
         onClick={() => props.handleDelete(props.item.id)}
+        aria-label={`Delete ${props.item.item}`} 
+        // aria-label is a way to describe the button to screen readers so they know what it does
       />
     </li>
   )

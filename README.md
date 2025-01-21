@@ -998,7 +998,16 @@ Think about the **component tree** we have built so far:
 
 ---
 
-# Chapter 9 - Controlled Component Inputs
+# Chapter 9 - Controlled Component 
+
+Controlled components refer to inputs in React forms.  
+
+Let's see how to add a form to our app so we can add new items to our list.  
+We'll also see how to load the items that we've saved from local storage.  
+
+## Adding a form to our app
+
+
 
 ---
 EOF
