@@ -12,7 +12,7 @@ interface Props {
 
 const LineItem = (props: Props) => {
   return (
-    <li className="item" key={props.item.id}>
+    <li className="item">
       <input 
         type="checkbox" 
         onChange={() => props.handleCheck(props.item.id)}

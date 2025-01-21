@@ -922,7 +922,7 @@ Let's create a new file called `LineItem.tsx`, then press Ctrl+Alt+R and type '*
 ```tsx
 const LineItem = (props: Props) => {
   return (
-    <li className="item" key={props.item.id}>
+    <li className="item">
       <input 
         type="checkbox" 
         onChange={() => props.handleCheck(props.item.id)}
