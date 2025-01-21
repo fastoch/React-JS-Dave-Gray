@@ -1007,6 +1007,15 @@ We'll also see how to load the items that we've saved from local storage.
 
 ## Adding a form to our app
 
+Right now, we're still using the default state for our list of items.  
+This default state is the one we have declared in our App component.  
+Every time we refresh the page, we get that same default list.  
+
+Before being able to load the page with the items we've saved from local storage, we need to add a form to our app.  
+We'll do that with a new component called **AddItem.tsx**.  
+
+
+
 
 
 ---

@@ -1,4 +1,5 @@
 import LineItem from './LineItem'
+import './ItemList.css'
 
 interface Props {
   items: {

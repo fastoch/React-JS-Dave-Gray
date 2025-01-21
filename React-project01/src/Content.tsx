@@ -1,6 +1,5 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './Content.css'
 import { useState } from 'react'
 import ItemList from './ItemList'
 
