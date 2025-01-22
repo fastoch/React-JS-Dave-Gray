@@ -1000,21 +1000,33 @@ Think about the **component tree** we have built so far:
 
 # Chapter 9 - Controlled Component 
 
-Controlled components refer to inputs in React forms.  
+Controlled components refer to **inputs** in React **forms**.  
 
 Let's see how to add a form to our app so we can add new items to our list.  
 We'll also see how to load the items that we've saved from local storage.  
 
 ## Adding a form to our app
 
-Right now, we're still using the default state for our list of items.  
-This default state is the one we have declared in our App component.  
+Right now, we're still using the **default state** for our list of items.  
+This default state is the one we have declared at the top of our App component (useState).  
 Every time we refresh the page, we get that same default list.  
 
 Before being able to load the page with the items we've saved from local storage, we need to add a form to our app.  
-We'll do that with a new component called **AddItem.tsx**.  
+This form will allow us to **add new items to our list**.  
 
+We'll create a new component in a file called **AddItem.tsx**.  
+Press Ctrl+Alt+R and type '**rafce**' to create a new functional component.  
 
+Now, to make this a controlled input, we need to tie it to state.  
+We want to have one source of truth for our input value, and we want to change the state as the input changes as well.  
+
+So back in the App.tsx file, we need to add a new state variable called **newItem**, and a function called **setNewItem**.  
+Right after the `const [items, setItems] = useState([]);` statement, we will add the following:
+```tsx	
+const [newItem, setNewItem] = useState('');
+```
+
+## Load the items from local storage
 
 
 

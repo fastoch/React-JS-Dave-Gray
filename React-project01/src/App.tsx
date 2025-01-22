@@ -1,5 +1,6 @@
 import './App.css'
 import Header from './Header.tsx'
+import AddItem from './AddItem.tsx'
 import Content from './Content.tsx'
 import Footer from './Footer.tsx'
 import { useState } from 'react'
@@ -23,6 +24,8 @@ function App() {
     }
   ]);
 
+  const [newItem, setNewItem] = useState('');
+
   const handleCheck = (id: number) => {
     const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
     setItems(listItems);
@@ -37,8 +40,9 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="App">
         <Header title="Groceries" />  {/* this component is imported from Header.tsx */}
+        <AddItem />
         <Content 
           items={items}
           handleCheck={handleCheck}

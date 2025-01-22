@@ -66,3 +66,48 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.addForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 0;
+  padding: 0 0 0.5rem 0;
+  border-bottom: 1px solid #eee;  
+}
+
+/* make the label invisible but still accessible to screen readers */
+.addForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.addForm input[type='text'] {
+  flex-grow: 1;
+  max-width: calc(100% - 50px);
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0;
+  outline: none;
+}
+
+button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  background-color: #eee;
+  color: mediumblue;
+  border: 1px solid black;
+}
+
+button:focus,
+button:hover {
+  color: white;
+  background-color: limegreen;
+  cursor: pointer;
+}
