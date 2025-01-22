@@ -38,11 +38,19 @@ function App() {
     localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
 
+  const handleSubmit = (e) => {
+    
+  }
+
   return (
     <>
       <div className="App">
         <Header title="Groceries" />  {/* this component is imported from Header.tsx */}
-        <AddItem />
+        <AddItem 
+          newItem={newItem}
+          setNewItem={setNewItem}
+          handleSubmit={handleSubmit}
+        />
         <Content 
           items={items}
           handleCheck={handleCheck}

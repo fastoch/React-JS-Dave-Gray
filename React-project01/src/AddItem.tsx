@@ -1,6 +1,12 @@
 import { FaPlus } from 'react-icons/fa'
 
-const AddItem = () => {
+interface Props {
+  newItem: string
+  setNewItem: React.Dispatch<React.SetStateAction<string>>
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}
+
+const AddItem = (props: Props) => {
   return (
     <form className='addForm'>
       <label htmlFor="addItem">Add Item</label>
@@ -10,6 +16,7 @@ const AddItem = () => {
         type='text' 
         placeholder='Add Item'
         required
+        value={props.newItem}
       />
       <button
         type='submit'

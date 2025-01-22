@@ -1005,7 +1005,7 @@ Controlled components refer to **inputs** in React **forms**.
 Let's see how to add a form to our app so we can add new items to our list.  
 We'll also see how to load the items that we've saved from local storage.  
 
-## Adding a form to our app
+## Adding a form to our App
 
 Right now, we're still using the **default state** for our list of items.  
 This default state is the one we have declared at the top of our App component (useState).  
@@ -1020,11 +1020,51 @@ Press Ctrl+Alt+R and type '**rafce**' to create a new functional component.
 Now, to make this a controlled input, we need to tie it to state.  
 We want to have one source of truth for our input value, and we want to change the state as the input changes as well.  
 
-So back in the App.tsx file, we need to add a new state variable called **newItem**, and a function called **setNewItem**.  
+So back in the `App.tsx` file, we need to add a new state variable called **newItem**, and a function called **setNewItem**.  
 Right after the `const [items, setItems] = useState([]);` statement, we will add the following:
 ```tsx	
 const [newItem, setNewItem] = useState('');
 ```
+
+We also need to define a function called **handleSubmit** that will be called when the form is submitted.  
+This function will add the new item to the list and clear the input field.  
+
+After that, we need to add some props to the **AddItem** component.
+```tsx
+<AddItem 
+  newItem={newItem}
+  setNewItem={setNewItem}
+  handleSubmit={handleSubmit}
+/>
+```
+
+Then, because of TypeScript, we need to add an interface for the **AddItem** component.
+```tsx
+interface Props {
+  newItem: string
+  setNewItem: React.Dispatch<React.SetStateAction<string>>
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}
+```
+
+Now, let's make the input a controlled component by setting the state to be the one source of truth for this input.  
+We can do that with a value attribute on the input element:
+```tsx
+const AddItem = (props: Props) => {
+  return (
+    <form className='addForm'>
+      <label htmlFor="addItem">Add Item</label>
+      <input 
+        autoFocus
+        id='addItem'
+        type='text' 
+        placeholder='Add Item'
+        required
+        value={props.newItem}
+      />
+```
+
+
 
 ## Load the items from local storage
 
