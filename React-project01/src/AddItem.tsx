@@ -6,9 +6,9 @@ interface Props {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
-const AddItem = (props: Props) => {
+const AddItem = ({ newItem, setNewItem, handleSubmit }: Props) => {
   return (
-    <form className='addForm'>
+    <form className='addForm' onSubmit={handleSubmit}>
       <label htmlFor="addItem">Add Item</label>
       <input 
         autoFocus
@@ -16,7 +16,8 @@ const AddItem = (props: Props) => {
         type='text' 
         placeholder='Add Item'
         required
-        value={props.newItem}
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
       />
       <button
         type='submit'

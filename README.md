@@ -1029,7 +1029,7 @@ const [newItem, setNewItem] = useState('');
 We also need to define a function called **handleSubmit** that will be called when the form is submitted.  
 This function will add the new item to the list and clear the input field.  
 
-After that, we need to add some props to the **AddItem** component.
+After that, we need to add the required props to the **AddItem** component.
 ```tsx
 <AddItem 
   newItem={newItem}
@@ -1038,7 +1038,7 @@ After that, we need to add some props to the **AddItem** component.
 />
 ```
 
-Then, because of TypeScript, we need to add an interface for the **AddItem** component.
+Then, because of TypeScript, we need to add an interface to the **AddItem** component.
 ```tsx
 interface Props {
   newItem: string
@@ -1048,11 +1048,11 @@ interface Props {
 ```
 
 Now, let's make the input a controlled component by setting the state to be the one source of truth for this input.  
-We can do that with a value attribute on the input element:
+We can do that with a `value` attribute on the input element:
 ```tsx
-const AddItem = (props: Props) => {
+const AddItem = ({ newItem, setNewItem, handleSubmit }: Props) => {
   return (
-    <form className='addForm'>
+    <form className='addForm' onSubmit={handleSubmit}>
       <label htmlFor="addItem">Add Item</label>
       <input 
         autoFocus
@@ -1060,11 +1060,32 @@ const AddItem = (props: Props) => {
         type='text' 
         placeholder='Add Item'
         required
-        value={props.newItem}
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
       />
+      <button
+        type='submit'
+        aria-label='Add Item'  
+      >
+        <FaPlus />   
+      </button>
+    </form>
+  )
+}
 ```
 
+The `onChange` attribute allows us to listen to changes in the input field.  
+When there's a change, the `setNewItem` function will update the state with the new value (newItem).  
 
+Now, let's define our `handleSubmit` function.  
+First of all, we need to prevent the default behavior of the form submission, which is to refresh the page.  
+```tsx
+
+```
+
+When the submit button is clicked, the form will be submitted and the `handleSubmit` function will be called.  
+This happens because of the `onSubmit` attribute on the form element.  
+The `handleSubmit` function will add the new item to the list and clear the input field.
 
 ## Load the items from local storage
 

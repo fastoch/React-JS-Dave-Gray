@@ -38,8 +38,8 @@ function App() {
     localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
 
-  const handleSubmit = (e) => {
-    
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(e);
   }
 
   return (
