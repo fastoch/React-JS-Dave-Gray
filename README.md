@@ -1027,7 +1027,7 @@ const [newItem, setNewItem] = useState('');
 ```
 
 We also need to define a function called **handleSubmit** that will be called when the form is submitted.  
-This function will add the new item to the list and clear the input field.  
+This function will add the new item to the list and clear the input field. We'll do that later.  
 
 After that, we need to add the required props to the **AddItem** component.
 ```tsx
@@ -1075,13 +1075,15 @@ const AddItem = ({ newItem, setNewItem, handleSubmit }: Props) => {
 ```
 
 The `onChange` attribute allows us to listen to changes in the input field.  
-When there's a change, the `setNewItem` function will update the state with the new value (newItem).  
+When there's a change, the `setNewItem` function will update the state with the new value.  
 
 Now, let's define our `handleSubmit` function.  
 First of all, we need to prevent the default behavior of the form submission, which is to refresh the page.  
 ```tsx
 
 ```
+Because we used the `required` attribute on the input element, we should not get a blank value submitted.  
+Hence the `if (!newItem) returnn;` statement, to exit the function if the input is empty.  
 
 When the submit button is clicked, the form will be submitted and the `handleSubmit` function will be called.  
 This happens because of the `onSubmit` attribute on the form element.  

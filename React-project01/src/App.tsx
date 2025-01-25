@@ -39,7 +39,9 @@ function App() {
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(e);
+    e.preventDefault();
+    if (!newItem) return;
+    // call the addItem() function
   }
 
   return (
