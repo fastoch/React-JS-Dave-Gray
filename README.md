@@ -1079,9 +1079,8 @@ When there's a change, the `setNewItem` function will update the state with the 
 
 Now, let's define our `handleSubmit` function.  
 First of all, we need to prevent the default behavior of the form submission, which is to refresh the page.  
-```tsx
+See `App.tsx`.
 
-```
 Because we used the `required` attribute on the input element, we should not get a blank value submitted.  
 Hence the `if (!newItem) returnn;` statement, to exit the function if the input is empty.  
 
@@ -1090,6 +1089,7 @@ This happens because of the `onSubmit` attribute on the form element.
 The `handleSubmit` function will add the new item to the list and clear the input field.
 
 ## Load the items from local storage
+
 
 
 

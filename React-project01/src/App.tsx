@@ -40,8 +40,22 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!newItem) return;
-    // call the addItem() function
+    if (!newItem) return; // if input empty, exit  
+    addItem(newItem);
+    setNewItem(''); // clean the input field
+  }
+
+  const addItem = (item: string) => {
+    // if list not empty, increment the id. else, set id to 1
+    const id = items.length ? items[items.length -1].id + 1 : 1;
+    // create the new item
+    const myNewItem = { id, checked: false, item };
+    // add the new item to the list
+    const listItems = [...items, myNewItem];
+    // update the state of our list
+    setItems(listItems);
+    // save the new list to local storage
+    localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
 
   return (
