@@ -54,7 +54,6 @@ const Content = (props: Props) => {
       <a href="https://react.dev" target="_blank">
         <img src={reactLogo} className="logo react" alt="React logo" />
       </a>
-      <h1>Vite + React</h1>
 
       <div className='button-container'>
         <button onClick={handleClick}>I</button>  {/* this is a function reference, not a function call */}

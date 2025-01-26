@@ -1077,9 +1077,8 @@ const AddItem = ({ newItem, setNewItem, handleSubmit }: Props) => {
 The `onChange` attribute allows us to listen to changes in the input field.  
 When there's a change, the `setNewItem` function will update the state with the new value.  
 
-Now, let's define our `handleSubmit` function.  
-First of all, we need to prevent the default behavior of the form submission, which is to refresh the page.  
-See `App.tsx`.
+Now, let's define our `handleSubmit` function. See `App.tsx` for the full code.  
+- First of all, we need to prevent the default behavior of the form submission, which is to refresh the page.  
 
 Because we used the `required` attribute on the input element, we should not get a blank value submitted.  
 Hence the `if (!newItem) returnn;` statement, to exit the function if the input is empty.  

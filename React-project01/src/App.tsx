@@ -1,39 +1,35 @@
 import './App.css'
 import Header from './Header.tsx'
+import SearchItem from './SearchItem.tsx'
 import AddItem from './AddItem.tsx'
 import Content from './Content.tsx'
 import Footer from './Footer.tsx'
 import { useState } from 'react'
 
-function App() {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: false,
-      item: 'One half pound bag of Cocoa Covered Almonds Unsalted'
-    },
-    {
-      id: 2,
-      checked: false,
-      item: 'Item 2'
-    },
-    {
-      id: 3,
-      checked: false,
-      item: 'Item 3'
-    }
-  ]);
+interface Item {
+  id: number
+  checked: boolean
+  item: string
+}
 
+function App() {
+  // state for our list of items
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('groceriesList') as string));
+
+  // state for new item
   const [newItem, setNewItem] = useState('');
 
+  // state for search
+  const [search, setSearch] = useState('');
+
   const handleCheck = (id: number) => {
-    const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
+    const listItems = items.map((item: Item) => item.id === id ? { ...item, checked: !item.checked } : item);
     setItems(listItems);
     localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
 
   const handleDelete = (id: number) => {
-    const listItems = items.filter((item) => item.id !== id);
+    const listItems = items.filter((item: Item) => item.id !== id);
     setItems(listItems);
     localStorage.setItem('groceriesList', JSON.stringify(listItems));
   }
@@ -62,6 +58,10 @@ function App() {
     <>
       <div className="App">
         <Header title="Groceries" />  {/* this component is imported from Header.tsx */}
+        <SearchItem 
+          search={search}
+          setSearch={setSearch}
+        />
         <AddItem 
           newItem={newItem}
           setNewItem={setNewItem}
