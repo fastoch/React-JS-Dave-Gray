@@ -1087,8 +1087,17 @@ When the submit button is clicked, the form will be submitted and the `handleSub
 This happens because of the `onSubmit` attribute on the form element.  
 The `handleSubmit` function will add the new item to the list and clear the input field.
 
-## Load the items from local storage
+## Recap
 
+We have implemented 2 controlled components:
+- AddItem
+- SearchItem
+
+AddItem has a value equal to the state variable `newItem`.  
+And when the input changes, the state variable `newItem` is updated via the `setNewItem` function.  
+
+SearchItem has a value equal to the state variable `search`.  
+And when the search input changes, the state variable `search` is updated via the `setSearch` function.
 
 
 
