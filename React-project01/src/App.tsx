@@ -68,7 +68,8 @@ function App() {
           handleSubmit={handleSubmit}
         />
         <Content 
-          items={items}
+          // filter the items based on the search input
+          items={items.filter((item: Item) => (item.item.toLowerCase()).includes(search.toLowerCase()))}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
         /> 

@@ -12,6 +12,8 @@ const SearchItem = (props: SearchProps) => {
         id="search" 
         role="searchbox"
         placeholder="Search Items"
+        value={props.search}
+        onChange={(e) => props.setSearch(e.target.value)}
       />
     </form>
   )

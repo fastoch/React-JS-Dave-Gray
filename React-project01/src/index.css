@@ -73,7 +73,7 @@ button:focus-visible {
   justify-content: center;
   margin: 0.5rem 0 0;
   padding: 0 0 0.5rem 0;
-  border-bottom: 1px solid #eee;  
+  border-bottom: none;  
 }
 
 /* make the label invisible but still accessible to screen readers */
@@ -110,4 +110,29 @@ button:hover {
   color: white;
   background-color: limegreen;
   cursor: pointer;
+}
+
+.searchForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 0;
+  padding: 0 0 0.5rem 0;
+  border-bottom: none;
+}
+
+.searchForm label {
+  margin: 0.25rem;
+  padding-top: 0.25rem;
+}
+
+.searchForm input[type='text'] {
+  flex-grow: 1;
+  max-width: 100%;
+  min-height: 32px;
+  font-size: 1rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0;
+  outline: none;
 }
