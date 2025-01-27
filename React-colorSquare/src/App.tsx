@@ -7,8 +7,13 @@ function App() {
   return (
     <>
       <div className='App'>
-        <Square />
-        <Input />
+        <Square 
+          colorValue=''
+        />
+        <Input 
+          colorValue=''
+          setColorValue={() => {}}
+        />
       </div>
     </>
   )
