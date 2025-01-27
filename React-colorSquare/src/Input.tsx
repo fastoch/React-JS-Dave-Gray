@@ -14,9 +14,7 @@ const Input = ({colorValue, setColorValue}: Props) => {
         required
         value={colorValue}  // this is how me make the input field a controlled component
         onChange={(e) => setColorValue(e.target.value)}
-      >
-        
-      </input>
+      />
     </form>
   )
 }
