@@ -13,8 +13,4 @@ const Square = ({ colorValue }: Props) => {
   )
 }
 
-Square.defaultProps = {
-  colorValue: "Empty Color Value"
-}
-
 export default Square
