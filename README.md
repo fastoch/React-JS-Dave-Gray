@@ -1099,6 +1099,10 @@ And when the input changes, the state variable `newItem` is updated via the `set
 SearchItem has a value equal to the state variable `search`.  
 And when the search input changes, the state variable `search` is updated via the `setSearch` function.
 
+---
+
+# Chapter 10 - React-colorSquare
+
 
 
 ---
